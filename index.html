@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>seajs demo</title>
+</head>
+<body>
+    
+    <h1 id="message">seajs demo</h1>
+    <button id="btn">paint</button>
+
+    <script src="libs/seajs/sea.js"></script>
+    <script>
+        seajs.config({
+            alias:{
+                'a': '/modules/a.js',
+                'jquery': '/libs/jquery/jquery.js',
+                'umd': '/libs/umd/umd',
+                'main': '/modules/main.js'
+            },
+    
+        });
+        seajs.use(['main', 'jquery'],function(main, $) {
+            $('#btn').on('click',function() {
+                main.paint('message');
+            })
+        });
+    
+    </script>
+
+</body>
+</html>
